@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag 'new.css' %>
+<div class="container">
+<% if admin_signed_in? %>
+<%= button_to "sign out", destroy_admin_session_path, method: :delete %>
+
+    <h4>Welcome! Register student details here</h4>
+    <%= link_to 'Register students', new_register_path %> 
+
+<% if @students.present? %>
+<h3>welcome to Students details</h3>
+
+<table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Password</th>
+             <th scope="col">ID</th>
+              <th scope="col">DOB</th>
+               <th scope="col">Year</th>
+                <th scope="col">Type</th>
+                 <th scope="col">Branch</th>
+                  <th scope="col">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @students.each do |student| %>
+            <tr>
+              <td><%= student.student_name %></td>
+             <td><%= student.password%></td>
+             <td><%= student.student_id%></td>
+              <td><%= student.dob%></td>
+              <td><%= student.choose_year%></td>
+              <td><%= student.check_type%></td>
+              <td><%= student.select_branch%></td>
+             <td><%= student.address%></td>  
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+
+<%else%><br>
+<%=link_to "Sign In", new_admin_session_path%>
+<% end %>
+
+</div>
+<% end %>

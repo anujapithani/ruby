@@ -1,0 +1,48 @@
+<h1>Student Registration form</h1>
+    <%= form_with scope: :student, url: registers_path, local: true do |form| %>
+      <div class="form-group">
+        <%= form.label :student_name %><br>
+        <%= form.text_field :student_name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+      <%= form.label :password %><br>
+      <%= form.password_field :password %>
+      </div>
+      <div class="form-group">
+        <%= form.label :student_id %><br>
+        <%= form.text_field :student_id, class: 'form-control' %>
+      </div>
+    <div>
+    <%= form.label :dob %><br>
+    <%= form.date_field :dob %>
+   </div>
+<div>
+<%= form.label :choose_year %><br>
+<%= form.radio_button :choose_year, "first year" %>
+<%= form.label :choose_year, "First year" %><br>
+<%= form.radio_button :choose_year, "second year" %>
+<%= form.label :choose_year, "Second year" %><br>
+<%= form.radio_button :choose_year, "third year" %>
+<%= form.label :choose_year, "Third year" %><br>
+<%= form.radio_button :choose_year, "fourth year" %>
+<%= form.label :choose_year, "Fourth year" %><br>
+</div>
+<div>
+<%= form.label :check_type %><br>
+<%= form.check_box :check_type %>
+<%= form.label :check_type, "Scholarship"%><br>
+<%= form.check_box :check_type %>
+<%= form.label :check_type, "Management Quota"%><br>
+</div>
+<div class="form-group">
+<%= form.label :select_branch %><br>
+<%= form.select :select_branch, ["CSE", "ECE", "EEE", "MECH", "IT", "CIVIL"], class: 'form-control' %>
+</div>
+<div class="form-group">
+        <%= form.label :address %><br>
+        <%= form.text_area :address, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= form.submit class: 'form-control btn-primary' %>
+      </div>
+    <% end %>
