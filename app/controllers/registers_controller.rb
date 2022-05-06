@@ -12,7 +12,7 @@ class RegistersController < ApplicationController
     end  
     private
     def student_params
-        params.require(:student).permit(:student_name, :password, :student_id, :dob, :choose_year, :check_type, :select_branch, :address)
+        params.require(:student).permit(:student_name, :password, :student_id, :dob, :choose_year, :select_branch, :address, check_type:[])
     end
 end
 
